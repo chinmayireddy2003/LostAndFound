@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Report Lost Item | Lost & Found</title>
+</head>
+
+<body style="
+    margin:0;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(120deg, #667eea 50%, #48bb78 50%);
+    font-family: 'Segoe UI', Arial, sans-serif;
+">
+
+<div style="
+    display:flex;
+    width:750px;
+    background:#fff;
+    border-radius:18px;
+    box-shadow:0 20px 50px rgba(0,0,0,0.3);
+    overflow:hidden;
+    animation: fadeIn 1s ease-in-out;
+">
+
+    <!-- LEFT IMAGE SECTION -->
+    <div style="
+        width:45%;
+        background: linear-gradient(
+            rgba(102,126,234,0.8),
+            rgba(72,187,120,0.8)
+        ),
+        url('https://images.unsplash.com/photo-1589652717521-10c0d092dea9');
+        background-size:cover;
+        background-position:center;
+        color:white;
+        padding:30px;
+        display:flex;
+        flex-direction:column;
+        justify-content:center;
+    ">
+        <h2 style="font-size:26px; margin-bottom:10px;">
+            Lost Something?
+        </h2>
+
+        <p style="font-size:14px; line-height:1.6;">
+            Report your lost item here and let us help you
+            recover it quickly and securely.
+        </p>
+    </div>
+
+    <!-- RIGHT FORM SECTION -->
+    <div style="
+        width:55%;
+        padding:35px;
+        text-align:center;
+    ">
+
+        <h2 style="
+            color:#333;
+            margin-bottom:8px;
+        ">
+            Report Lost Item
+        </h2>
+
+        <p style="
+            color:#666;
+            margin-bottom:20px;
+            font-size:14px;
+        ">
+            Fill in the details below
+        </p>
+
+        <form method="post">
+
+            <input type="text" name="item_name" placeholder="Item Name" required
+            style="
+                width:100%;
+                padding:12px;
+                margin-bottom:12px;
+                border-radius:8px;
+                border:1px solid #ccc;
+            ">
+
+            <input type="text" name="description" placeholder="Description (color, brand)"
+            style="
+                width:100%;
+                padding:12px;
+                margin-bottom:12px;
+                border-radius:8px;
+                border:1px solid #ccc;
+            ">
+
+            <input type="text" name="location" placeholder="Lost Location" required
+            style="
+                width:100%;
+                padding:12px;
+                margin-bottom:12px;
+                border-radius:8px;
+                border:1px solid #ccc;
+            ">
+
+            <input type="date" name="lost_date" required
+            style="
+                width:100%;
+                padding:12px;
+                margin-bottom:12px;
+                border-radius:8px;
+                border:1px solid #ccc;
+            ">
+
+            <input type="email" name="email" placeholder="Your Email" required
+            style="
+                width:100%;
+                padding:12px;
+                margin-bottom:20px;
+                border-radius:8px;
+                border:1px solid #ccc;
+            ">
+            <input type="tel" name="phone" placeholder="Mobile Number" required
+
+            style="
+                width:100%;
+                padding:12px;
+                margin-bottom:20px;
+                border-radius:8px;
+                border:1px solid #ccc;
+            ">
+            <button type="submit"
+            style="
+                width:100%;
+                padding:12px;
+                background: linear-gradient(to right, #667eea, #48bb78);
+                color:white;
+                border:none;
+                border-radius:8px;
+                font-size:16px;
+                font-weight:600;
+                cursor:pointer;
+                transition:0.3s;
+            "
+            onmouseover="this.style.opacity='0.85'"
+            onmouseout="this.style.opacity='1'">
+                Submit Lost Item
+            </button>
+        </form>
+
+        <a href="{{ url_for('dashboard') }}" style="
+            display:block;
+            margin-top:18px;
+            color:#667eea;
+            text-decoration:none;
+            font-weight:600;
+            font-size:14px;
+        ">
+            ← Back to Dashboard
+        </a>
+
+    </div>
+</div>
+
+<!-- Animation -->
+<style>
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+</style>
+
+</body>
+</html>

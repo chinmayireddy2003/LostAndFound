@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login | Lost & Found</title>
+</head>
+
+<body style="
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    font-family: 'Segoe UI', Arial, sans-serif;
+">
+
+<div style="
+    background:#ffffff;
+    width:350px;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    text-align:center;
+    animation: fadeIn 1s ease-in-out;
+">
+
+    <h2 style="
+        margin-bottom:10px;
+        color:#333;
+        font-size:26px;
+    ">
+        Lost & Found
+    </h2>
+
+    <p style="
+        color:#666;
+        margin-bottom:20px;
+        font-size:14px;
+    ">
+        Login to continue
+    </p>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <p style="color:red; margin-bottom:15px;">
+            {{ messages[0] }}
+        </p>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post">
+        <input type="email" name="email" placeholder="Email" required
+        style="
+            width:100%;
+            padding:12px;
+            margin-bottom:12px;
+            border-radius:8px;
+            border:1px solid #ccc;
+            font-size:14px;
+        ">
+
+        <input type="password" name="password" placeholder="Password" required
+        style="
+            width:100%;
+            padding:12px;
+            margin-bottom:18px;
+            border-radius:8px;
+            border:1px solid #ccc;
+            font-size:14px;
+        ">
+
+        <button type="submit"
+        style="
+            width:100%;
+            padding:12px;
+            background:#667eea;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+            font-weight:600;
+            cursor:pointer;
+            transition:0.3s;
+        "
+        onmouseover="this.style.background='#5a67d8'"
+        onmouseout="this.style.background='#667eea'">
+            Login
+        </button>
+    </form>
+
+    <p style="margin-top:18px; font-size:14px;">
+        New user?
+        <a href="{{ url_for('register') }}" style="
+            color:#667eea;
+            text-decoration:none;
+            font-weight:600;
+        ">
+            Register
+        </a>
+    </p>
+
+</div>
+
+<!-- Animation -->
+<style>
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+</style>
+
+</body>
+</html>

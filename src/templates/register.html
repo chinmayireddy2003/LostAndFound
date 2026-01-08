@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register | Lost & Found</title>
+</head>
+
+<body id="bg" style="
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:'Segoe UI', Arial, sans-serif;
+    transition: background 1.2s ease;
+">
+
+<div style="
+    background:#ffffff;
+    width:360px;
+    padding:35px;
+    border-radius:15px;
+    box-shadow:0 15px 40px rgba(0,0,0,0.25);
+    text-align:center;
+    animation: fadeIn 1s ease-in-out;
+">
+
+    <h2 style="margin-bottom:10px; color:#333; font-size:26px;">
+        Create Account
+    </h2>
+
+    <p style="color:#666; margin-bottom:20px; font-size:14px;">
+        Join the Lost & Found system
+    </p>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <p style="color:red; margin-bottom:15px;">
+            {{ messages[0] }}
+        </p>
+      {% endif %}
+    {% endwith %}
+
+    <form method="post">
+
+        <input type="text" name="name" placeholder="Full Name" required
+        style="width:100%; padding:12px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;">
+
+        <input type="email" name="email" placeholder="Email" required
+        style="width:100%; padding:12px; margin-bottom:12px; border-radius:8px; border:1px solid #ccc;">
+
+        <input type="password" name="password" placeholder="Password" required
+        style="width:100%; padding:12px; margin-bottom:18px; border-radius:8px; border:1px solid #ccc;">
+
+        <button type="submit"
+        style="
+            width:100%;
+            padding:12px;
+            background:#48bb78;
+            color:white;
+            border:none;
+            border-radius:8px;
+            font-size:16px;
+            font-weight:600;
+            cursor:pointer;
+        ">
+            Register
+        </button>
+    </form>
+
+    <p style="margin-top:18px; font-size:14px;">
+        Already have an account?
+        <a href="{{ url_for('login') }}" style="color:#667eea; text-decoration:none; font-weight:600;">
+            Login
+        </a>
+    </p>
+
+</div>
+
+<!-- ANIMATION -->
+<style>
+@keyframes fadeIn {
+    from { opacity:0; transform: translateY(25px); }
+    to { opacity:1; transform: translateY(0); }
+}
+</style>
+
+<!-- RANDOM RGB BACKGROUND SCRIPT -->
+<script>
+function randomRGB() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}
+
+document.getElementById("bg").style.background = randomRGB();
+</script>
+
+</body>
+</html>

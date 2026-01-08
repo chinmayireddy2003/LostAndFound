@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard | Lost & Found</title>
+</head>
+
+<body style="
+    margin:0;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url('https://images.unsplash.com/photo-1529070538774-1843cb3265df');
+    background-size:cover;
+    background-position:center;
+    font-family:'Segoe UI', Arial, sans-serif;
+">
+
+<div style="
+    background:rgba(255,255,255,0.95);
+    width:380px;
+    padding:40px;
+    border-radius:18px;
+    box-shadow:0 25px 60px rgba(0,0,0,0.35);
+    text-align:center;
+    animation: slideFade 1.2s ease forwards;
+">
+
+    <h2 style="
+        margin-bottom:8px;
+        color:#333;
+        font-size:28px;
+        letter-spacing:0.5px;
+    ">
+        Lost & Found
+    </h2>
+
+    <p style="
+        color:#555;
+        margin-bottom:28px;
+        font-size:14px;
+    ">
+        Manage your lost items easily & securely
+    </p>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <p style="
+            color:rgb(121, 148, 121);
+            margin-bottom:18px;
+            font-weight:600;
+            animation: pulse 1.5s infinite;
+        ">
+            {{ messages[0] }}
+        </p>
+      {% endif %}
+    {% endwith %}
+
+    <!-- Report Lost Item -->
+    <a href="{{ url_for('lost_item') }}" style="
+        display:block;
+        text-decoration:none;
+        background:linear-gradient(to right,#667eea,#764ba2);
+        color:white;
+        padding:14px;
+        border-radius:10px;
+        margin-bottom:14px;
+        font-weight:600;
+        transition:0.35s;
+    "
+    onmouseover="this.style.transform='scale(1.05)'"
+    onmouseout="this.style.transform='scale(1)'">
+        ➕ Report Lost Item
+    </a>
+
+    <!-- View Lost Items -->
+    <a href="{{ url_for('view_lost_items') }}" style="
+        display:block;
+        text-decoration:none;
+        background:linear-gradient(to right,#48bb78,#38a169);
+        color:white;
+        padding:14px;
+        border-radius:10px;
+        margin-bottom:14px;
+        font-weight:600;
+        transition:0.35s;
+    "
+    onmouseover="this.style.transform='scale(1.05)'"
+    onmouseout="this.style.transform='scale(1)'">
+        📋 View Lost Items
+    </a>
+
+    <!-- Logout -->
+    <a href="{{ url_for('logout') }}" style="
+        display:block;
+        text-decoration:none;
+        background:linear-gradient(to right,#e53e3e,#c53030);
+        color:white;
+        padding:14px;
+        border-radius:10px;
+        font-weight:600;
+        transition:0.35s;
+    "
+    onmouseover="this.style.transform='scale(1.05)'"
+    onmouseout="this.style.transform='scale(1)'">
+        🚪 Logout
+    </a>
+
+</div>
+
+<!-- ADVANCED ANIMATIONS -->
+<style>
+@keyframes slideFade {
+    from {
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.6; }
+    100% { opacity: 1; }
+}
+</style>
+
+</body>
+</html>
